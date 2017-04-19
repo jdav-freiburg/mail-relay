@@ -1,0 +1,20 @@
+myhostname = vps1.jdav-freiburg.de 
+mynetworks = 127.0.0.1, 172.26.0.0/16
+
+smtpd_sasl_local_domain =
+smtpd_sasl_auth_enable = yes
+smtpd_sasl_security_options = noanonymous
+broken_sasl_auth_clients = yes
+smtp_use_tls = yes
+smtp_tls_note_starttls_offer = yes
+smtpd_tls_CAfile = /etc/postfix/ssl/cacert.pem
+smtpd_tls_loglevel = 1
+smtpd_tls_received_header = yes
+smtpd_tls_session_cache_timeout = 3600s
+tls_random_source = dev:/dev/urandom
+
+relayhost = [smtprelaypool.ispgateway.de]
+smtp_sasl_auth_enable = yes
+smtp_sasl_password_maps = hash:/etc/postfix/saslpass
+smtp_sasl_mechanism_filter = login
+smtp_sasl_security_options = noanonymous
