@@ -1,18 +1,14 @@
-# JDAV Freiburg mail-relay 
+# JDAV Freiburg mail-relay
 
-
-
-## Background 
+## Background
 
 - open relay for mail sending
-
-
 
 ## Usage
 
 ### Start mail-relay docker container
 
-- Clone repository 
+- Clone repository
 
 - Create file `data/saslpass` with content:
 
@@ -24,7 +20,7 @@
 
 - Set `relayhost` in `main.cf`
 
-- Create `mail` docker network 
+- Create `mail` docker network
 
   ```bash
   docker network create mail
@@ -38,10 +34,8 @@
 
 - Check if network is correctly configured
 
-  - Get "Gateway" network (eg. `172.19.0.1`) from mail network with  `docker inspect network mail` 
-  - And add it to `data/main.cf` in `mynetworks = 127.0.0.1, 172.19.0.0/16` 
-
-
+  - Get "Gateway" network (eg. `172.19.0.1`) from mail network with `docker inspect network mail`
+  - And add it to `data/main.cf` in `mynetworks = 127.0.0.1, 172.19.0.0/16`
 
 ### Connect with service
 
@@ -51,10 +45,7 @@ Add network from the mail-relay to the `docker-compose.yaml` of the service whic
 networks:
   mail:
     external: true
-...
 ```
-
-
 
 Configuration within the service (usually admin setting or a config file)
 
@@ -68,5 +59,3 @@ Configuration within the service (usually admin setting or a config file)
 | username       | ""                       |
 | passwort       | ""                       |
 | SSL            | false                    |
-
-
