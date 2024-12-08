@@ -2,7 +2,11 @@ name: mail-relay
 
 networks:
   mail:
-    external: true
+    name: mail
+    ipam:
+      config:
+        - subnet: 172.172.0.0/16
+
 services:
   postfix:
     build: build/postfix
@@ -14,4 +18,6 @@ services:
       - ./data/saslpass.db:/etc/postfix/saslpass.db
     networks:
       - mail
-      - default
+    # Uncomment for testing only
+    # ports:
+    #   - "25:25"

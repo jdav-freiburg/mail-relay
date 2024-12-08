@@ -1,5 +1,5 @@
-myhostname = vps1.jdav-freiburg.de 
-mynetworks = 127.0.0.1, 172.22.0.0/16
+myhostname = vps1.jdav-freiburg.de
+mynetworks = 127.0.0.1, 172.172.0.0/16
 
 smtpd_relay_restrictions = permit_mynetworks reject
 smtpd_sasl_local_domain =
